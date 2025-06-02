@@ -96,7 +96,6 @@ This project is open source and available under the [MIT License](LICENSE).
 ## Support
 
 - **Issues**: Report bugs and request features via GitHub Issues
-- **Hardware**: Visit [modernmidi.com](https://modernmidi.com) for Timepod controller information
 
 ## Development
 
