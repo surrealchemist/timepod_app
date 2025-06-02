@@ -1,6 +1,6 @@
 # Timepod Desktop Editor
 
-A desktop application for configuring the Timepod MIDI controller.
+Desktop application for configuring the Timepod MIDI controller.
 
 ## Features
 
@@ -29,8 +29,8 @@ A desktop application for configuring the Timepod MIDI controller.
 ### Setup
 ```bash
 # Clone the repository
-git clone [your-repo-url]
-cd timepod_desktop
+git clone https://github.com/modernmidi/timepod_app.git
+cd timepod_app
 
 # Install dependencies
 npm install
