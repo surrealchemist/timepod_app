@@ -742,50 +742,6 @@ const App = () => {
             return newBanks;
         });
     };
-
-    useEffect(() => {
-        // Load available serial ports
-        const loadPorts = async () => {
-            try {
-                const ports = await firmwareService.getPorts();
-                setSerialPorts(ports);
-                
-                if (ports.length > 0) {
-                    // First try to find a Modern MIDI port
-                    const modernMidiPort = ports.find(port => 
-                        (port.name && port.name.includes('TP-001')) ||
-                        (port.path && port.path.includes('Modern MIDI')) ||
-                        (port.manufacturer && port.manufacturer.includes('Modern MIDI'))
-                    );
-                    
-                    if (modernMidiPort) {
-                        setSelectedPort(modernMidiPort.path);
-                    } else {
-                        // Otherwise use the first non-Bluetooth port
-                        const nonBluetoothPort = ports.find(port => 
-                            !port.path.includes('BLTH') && 
-                            !port.path.includes('Bluetooth')
-                        );
-                        
-                        if (nonBluetoothPort) {
-                            setSelectedPort(nonBluetoothPort.path);
-                        } else {
-                            // Fall back to the first port if needed
-                            setSelectedPort(ports[0].path);
-                        }
-                    }
-                }
-            } catch (error) {
-                console.error('Error loading serial ports:', error);
-            }
-        };
-        
-        loadPorts();
-        // You might want to refresh this list periodically
-        const interval = setInterval(loadPorts, 5000);
-        
-        return () => clearInterval(interval);
-    }, []);
     
     const handleDownloadFirmware = async () => {
         if (isDownloading) return;

@@ -416,17 +416,11 @@ const Sidebar = ({
                 
                 <button 
                     onClick={onUploadFirmware}
-                    disabled={isUploading || !selectedPort || !isRemoteDownloaded}
+                    disabled={isUploading || !isRemoteDownloaded}
                     className={`upload-firmware-button ${isUploading ? 'uploading' : ''} ${(uploadComplete || (uploadProgress >= 0.99 && !isUploading)) ? 'success' : ''}`}
                 >
                     {uploadButtonText}
                 </button>
-                
-                {!selectedPort && (
-                    <div className="port-hint">
-                        Connect your device to a USB port
-                    </div>
-                )}
             </div>
         );
     };
